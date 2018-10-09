@@ -21,7 +21,11 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "bundleIdentifier": "network.ipseity.jobs",
+      "supportsTablet": true,
+      "config": {
+        "googleMapsApiKey": "AIzaSyDPJjqOPDX5lqKaPGzP1PQXS3muyO7OyJY"
+      }
     }
   }
 }
