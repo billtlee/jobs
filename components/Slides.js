@@ -31,6 +31,7 @@ class Slides extends Component {
       );
     });
   }
+
   render() {
     return (
       <ScrollView

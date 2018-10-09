@@ -3,8 +3,8 @@ import { StyleSheet, View } from 'react-native';
 import { Icon } from 'react-native-elements';
 import { createBottomTabNavigator, createStackNavigator } from 'react-navigation';
 import { Provider } from 'react-redux';
-
-import store from './store';
+import { PersistGate } from 'redux-persist/integration/react';
+import configureStore from './store';
 import AuthScreen from './screens/AuthScreen';
 import WelcomeScreen from './screens/WelcomeScreen';
 import MapScreen from './screens/MapScreen';
@@ -14,6 +14,7 @@ import ReviewScreen from './screens/ReviewScreen';
 
 export default class App extends React.Component {
   render() {
+    const { persistor, store } = configureStore();
     const MainNavigator = createBottomTabNavigator({
       welcome: { screen: WelcomeScreen },
       auth: { screen: AuthScreen },
@@ -48,9 +49,11 @@ export default class App extends React.Component {
 
     return (
       <Provider store={store}>
-        <View style={styles.container}>
-          <MainNavigator />
-        </View>
+        <PersistGate persistor={persistor}>
+          <View style={styles.container}>
+            <MainNavigator />
+          </View>
+        </PersistGate>
       </Provider>
     );
   }
