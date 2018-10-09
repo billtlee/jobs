@@ -33,6 +33,8 @@ export default class App extends React.Component {
             }
           }
         }, {
+          tabBarPosition: 'bottom',  //Android only
+          swipeEnabled: false,  //Android only
           tabBarOptions: {
             labelStyle: { fontSize: 12 }
           }
